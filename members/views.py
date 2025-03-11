@@ -8,13 +8,13 @@ from django.contrib import messages
 @login_required
 def member_list_view(request):
     members = User.objects.all()  # Get all users
-    return render(request, 'members/member_list.html', {'members': members})
+    return render(request, 'member_list.html', {'members': members})
 
 @login_required
 def profile_view(request, user_id):
     user = get_object_or_404(User, id=user_id)
     profile = get_object_or_404(Profile, user=user)
-    return render(request, 'members/profile_view.html', {'user': user, 'profile': profile})
+    return render(request, 'profile_view.html', {'user': user, 'profile': profile})
 
 @login_required
 def profile_edit_view(request):
@@ -34,4 +34,4 @@ def profile_edit_view(request):
             profile.profile_picture = profile_picture
         profile.save()
         return redirect('members:profile', user_id=request.user.id)
-    return render(request, 'members/profile_edit.html', {'profile': profile})
+    return render(request, 'profile_edit.html', {'profile': profile})
