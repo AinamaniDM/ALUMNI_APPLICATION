@@ -3,8 +3,6 @@
 {% load static %}
 {% block content %}
     <div class="login-header">
-        <img src="{% static 'images/logo.png' %}" alt="AlumniConnect Logo" class="logo">
-        <h1>Alumni Connect</h1>
         <p class="slogan">Reuniting Our Alumni Family</p>
         <p class="welcome">Connect with fellow alumni, share updates, and stay engaged.</p>
     </div>
@@ -30,6 +28,7 @@
             {% endif %}
         </div>
         <button type="submit">Login</button>
+        <p class="register-qtn">Don't have an account? <a href="{% url 'auth_app:register' %}">Register here</a></p>
     </form>
-    <p >Don't have an account? <a href="{% url 'auth_app:register' %}">Register here</a></p>
+    
 {% endblock %}
