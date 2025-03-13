@@ -10,7 +10,7 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('core:home')
+            return redirect('news:news_list')
         else:
             messages.error(request, "Invalid username or password.")
     else:
@@ -19,7 +19,7 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('auth_app:login')
+    return redirect('core:home')
 
 def register_view(request):
     if request.method == 'POST':
@@ -30,7 +30,7 @@ def register_view(request):
             password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('core:home')
+            return redirect('auth_app:login')
         else:
             messages.error(request, "Please correct the errors below.")
     else:
