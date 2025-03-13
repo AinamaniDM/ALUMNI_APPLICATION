@@ -6,118 +6,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alumni Connect</title>
-    {% load static %}
     <style>
         /* General Reset */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f7fa; /* Light background for contrast */
-            color: #333; /* Dark text for readability */
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fa; /* Soft blue-gray background */
+            color: #333;
         }
 
-        /* Center the entire content */
+        /* Main Container */
         .home-container {
-            max-width: 800px; /* Limit width for readability */
-            margin: 0 auto; /* Center horizontally */
-            padding: 20px; /* Add some padding */
-            text-align: center; /* Center text within */
-            min-height: 100vh; /* Full height for vertical centering */
+            max-width: 1200px; /* Wider for two columns */
+            margin: 0 auto;
+            padding: 40px 20px; /* More padding */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Center content vertically */
+            justify-content: center;
         }
 
-        /* Hero Section (Title and Logo) */
+        /* Two-Column Layout */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap; /* Stack on small screens */
+            gap: 40px; /* Space between columns */
+            margin-bottom: 40px; /* Space before buttons */
+        }
+
+        /* Left Column (Logo and Heading) */
         .hero-section {
-            margin-bottom: 40px; /* Space below hero */
+            flex: 1 1 300px; /* Minimum width */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .hero-section h1 {
-            font-size: 2.5em; /* Larger title */
+            font-size: 2.5em;
             color: #2c3e50; /* Dark blue-gray */
-            margin-bottom: 20px; /* Space below title */
-            text-transform: uppercase; /* Bold look */
-            letter-spacing: 1px; /* Slight spacing for elegance */
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
         }
 
-        .logo {
-            max-width: 150px; /* Adjust based on your logo size */
+        .hero-section .logo {
+            max-width: 120px; /* Slightly smaller for balance */
             height: auto;
-            display: block; /* Center the image */
-            margin: 0 auto; /* Center horizontally */
+            transition: transform 0.3s ease; /* Hover effect */
         }
 
-        /* Vision and Mission Section */
+        .hero-section .logo:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        /* Right Column (Vision and Mission) */
         .vision-mission {
-            margin-bottom: 40px; /* Space below section */
+            flex: 2 1 500px; /* Wider for content */
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Space between vision and mission */
         }
 
         .content-block {
-            background-color: #fff; /* White background for contrast */
-            padding: 20px;
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-            margin: 20px 0; /* Space between blocks */
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-block:hover {
+            transform: translateY(-5px); /* Lift on hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
         }
 
         .content-block h3 {
-            font-size: 1.5em;
-            color: #2980b9; /* Blue for headings */
-            margin-bottom: 10px;
+            font-size: 1.6em;
+            color: #2980b9; /* Bright blue */
+            margin: 0 0 15px 0;
+            font-weight: 600;
         }
 
         .content-block p {
             font-size: 1.1em;
-            line-height: 1.6; /* Better readability */
-            color: #666; /* Softer text color */
+            line-height: 1.6;
+            color: #555;
+            margin: 0;
         }
 
-        /* Buttons */
+        /* Buttons Section */
         .auth-buttons {
-            margin-top: 20px; /* Space above buttons */
+            text-align: center; /* Center buttons */
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 25px; /* Larger padding for clickable area */
-            background-color: #3498db; /* Bright blue */
+            padding: 12px 30px;
+            background-color: #3498db; /* Vibrant blue */
             color: white;
             text-decoration: none;
             border-radius: 5px;
+            font-size: 1em;
             font-weight: bold;
-            margin: 0 10px; /* Space between buttons */
-            transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+            margin: 10px; /* Space between buttons */
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .btn:hover {
-            background-color: #2980b9; /* Darker blue on hover */
-            transform: translateY(-2px); /* Slight lift effect */
+            background-color: #2980b9; /* Darker blue */
+            transform: translateY(-3px); /* Lift effect */
         }
 
         .btn:active {
             transform: translateY(0); /* Reset on click */
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column; /* Stack columns */
+                gap: 20px;
+            }
+            .hero-section, .vision-mission {
+                flex: 1 1 100%; /* Full width on small screens */
+            }
+        }
     </style>
 </head>
 <body>
     <div class="home-container">
-        <header class="hero-section">
-            <h1>Alumni Connect</h1>
-            <img src="{% static 'images/logo.png' %}" alt="AlumniConnect Logo" class="logo">
-        </header>
+        <div class="main-content">
+            <!-- Left Column: Logo and Heading -->
+            <section class="hero-section">
+                <h1>Alumni Connect</h1>
+                <img src="{% static 'images/logo.png' %}" alt="Alumni Connect Logo" class="logo">
+            </section>
 
-        <section class="vision-mission">
-            <div class="content-block">
-                <h3>Our Vision</h3>
-                <p>The vision statement will appear here</p>
-            </div>
-            <div class="content-block">
-                <h3>Our Mission</h3>
-                <p>The mission statement will appear here</p>
-            </div>
-        </section>
+            <!-- Right Column: Vision and Mission -->
+            <section class="vision-mission">
+                <div class="content-block">
+                    <h3>Our Vision</h3>
+                    <p>The vision statement will appear here</p>
+                </div>
+                <div class="content-block">
+                    <h3>Our Mission</h3>
+                    <p>The mission statement will appear here</p>
+                </div>
+            </section>
+        </div>
 
+        <!-- Buttons Below -->
         <div class="auth-buttons">
             <a href="{% url 'auth_app:login' %}" class="btn">Login</a>
             <a href="{% url 'auth_app:register' %}" class="btn">Register</a>
