@@ -20,12 +20,15 @@ def profile_view(request, user_id):
 def profile_edit_view(request):
     profile = get_object_or_404(Profile, user=request.user)
     if request.method == 'POST':
+        full_name =request.POST.get('full_name')
         bio = request.POST.get('bio')
         graduation_year = request.POST.get('graduation_year')
         current_employer = request.POST.get('current_employer')
         profile_picture = request.FILES.get('profile_picture')
 
         profile.bio = bio
+        if full_name:
+            profile.full_name = full_name
         if graduation_year:
             profile.graduation_year = graduation_year
         if current_employer:
