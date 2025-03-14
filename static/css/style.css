@@ -208,12 +208,12 @@ button:hover {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
 }
 
-/* Style the container */
+/* Styling members the container */
 .members-container {
-    display: flex; /* Makes members appear in a row */
+    display: flex; 
     justify-content: left; 
-    gap: 50px; /* Adds spacing between members */
-    flex-wrap: wrap; /* Wraps to next line if screen is small */
+    gap: 50px; 
+    flex-wrap: wrap; 
     padding: 20px;
 }
 
@@ -227,26 +227,22 @@ button:hover {
     transition: transform 0.3s ease-in-out;
 }
 
-/* Member image (circular) */
+/* Member image*/
 .img-fluid {
-    width: 200px; /* Adjust size */
+    width: 200px; 
     height: 200px;
-    border-radius: 50%; /* Makes image circular */
-    object-fit: cover; /* Ensures image fills the area */
-    /*border: 4px solid #0a1522; /* Blue border */
-    /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);*/
+    border-radius: 50%; 
+    object-fit: cover; 
 }
 
-/* Member name */
+
 .member-name h3 {
     font-size: 18px;
     margin-top: 10px;
     color: #333;
     text-decoration: none;
 }
-
-/* Hover effect */
-.member:hover {
-    transform: scale(1.05); /* Slight zoom effect */
-    background: #e3f2fd; /* Light blue background */
+.member-name:hover {
+    transform: scale(1.05); 
+    background: #e3f2fd; 
 }
