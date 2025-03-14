@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>News to you</h1>
+    <h1> Hello {{ user.username}} watch out our news!</h1>
     <div class="news-container">
         {% for post in news %}
             <div class="news-post">
