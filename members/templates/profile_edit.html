@@ -29,11 +29,11 @@
             <label for="profile_picture" class="form-label">Profile Picture</label>
             <input type="file" class="form-control" id="profile_picture" name="profile_picture">
             {% if profile.profile_picture %}
-                <img src="{{ profile.profile_picture.url }}" alt="profile" onerror="this.onerror=null;src='/static/images/Avatar.jpg'" class="img-fluid mt-2" style="max-width: 100px;">
+                <!-- <img src="{{ profile.profile_picture.url }}" alt="profile" onerror="this.onerror=null;src='/static/images/Avatar.jpg'" class="img1-fluid" style="max-width: 100px;"> -->
             {% endif %}
         </div>
-        <button type="submit" class="btn btn-primary">Save Changes</button>
-        <a href="{% url 'members:profile' user.id %}" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="save-btn">Save Changes</button>
+        <a href="{% url 'members:profile' user.id %}" class="cancel-btn">Cancel</a>
     </form>
      <!-- <a href="{% url 'auth_app:logout' %}">Logout </a> -->
 
