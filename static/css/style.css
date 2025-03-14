@@ -199,7 +199,6 @@ button:hover {
         max-width: calc(50% - 20px);
     }
 }
-<<<<<<< HEAD
 
 
 
@@ -252,7 +251,6 @@ button:hover {
     font-size: 12px;
     margin-top: 15px;
 }
-=======
 .profile-pic {
     width: 50px; 
     height: 50px; 
@@ -300,4 +298,3 @@ button:hover {
     transform: scale(1.05); 
     background: #e3f2fd; 
 }
->>>>>>> b36cee49f11065382a75903c3863752cbc3eabe4
