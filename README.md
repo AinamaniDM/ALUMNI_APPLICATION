@@ -1,6 +1,6 @@
 # Alumni Web App
 
-This is a simple Django web app for alumni registration, login, and member listing.
+This is a simple Django web app for **Alumni** of a certain institution to connect.
 
 ## Features
 
