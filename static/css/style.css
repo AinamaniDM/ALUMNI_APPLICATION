@@ -160,7 +160,7 @@ button:hover {
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 15px;
-    background-color: #fff;
+    background-color:lightgray;
     box-sizing: border-box;
 }
 
@@ -175,6 +175,7 @@ button:hover {
 }
 
 .news-post h3 {
+    font-family: "Montserrat";
     font-size: 1.25rem;
     margin-bottom: 10px;
 }
