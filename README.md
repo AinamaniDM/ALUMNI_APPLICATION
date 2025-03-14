@@ -1,3 +1,6 @@
+# Alumni connect
+![logo](https://github.com/user-attachments/assets/4ec574be-35f1-4f6b-b572-6c9f10f0ae67)
+
 # Alumni Web App
 
 This is a simple Django web app for **Alumni** of a certain institution to connect.
