@@ -199,6 +199,7 @@ button:hover {
         max-width: calc(50% - 20px);
     }
 }
+<<<<<<< HEAD
 
 
 
@@ -251,3 +252,52 @@ button:hover {
     font-size: 12px;
     margin-top: 15px;
 }
+=======
+.profile-pic {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2px solid #140938; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+}
+
+/* Styling members the container */
+.members-container {
+    display: flex; 
+    justify-content: left; 
+    gap: 50px; 
+    flex-wrap: wrap; 
+    padding: 20px;
+}
+
+/* Style each member Display for the member list */
+.member {
+    text-align: center; 
+    background: #f8f9fa; 
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Member image*/
+.img-fluid {
+    width: 200px; 
+    height: 200px;
+    border-radius: 50%; 
+    object-fit: cover; 
+}
+
+
+.member-name h3 {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #333;
+    text-decoration: none;
+}
+.member-name:hover {
+    transform: scale(1.05); 
+    background: #e3f2fd; 
+}
+>>>>>>> b36cee49f11065382a75903c3863752cbc3eabe4
