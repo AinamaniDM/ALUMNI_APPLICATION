@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Editing {{user.username}}'s profile</h1>
+    <!-- <h1>Edit {{user.username}}'s profile</h1> -->
+    <h1>Edit profile</h1>
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-{{ message.tags }}">{{ message }}</div>
@@ -30,4 +31,6 @@
         <button type="submit" class="btn btn-primary">Save Changes</button>
         <a href="{% url 'members:profile' user.id %}" class="btn btn-secondary">Cancel</a>
     </form>
+     <a href="{% url 'auth_app:logout' %}">Logout </a>
+
 {% endblock %}

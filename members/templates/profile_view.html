@@ -8,7 +8,7 @@
     <p><strong>Graduation Year:</strong> {{ profile.graduation_year|default:"Not specified" }}</p>
     <p><strong>Current Employer:</strong> {{ profile.current_employer|default:"Not specified" }}</p>
     {% if user == request.user %}
-        <a href="{% url 'members:profile_edit' %}" class="btn btn-primary">Edit Profile</a>
+        <!-- <a href="{% url 'members:profile_edit' %}" class="btn btn-primary">Edit Profile</a> -->
     {% endif %}
     <a href="{% url 'members:member_list' %}" class="btn btn-secondary">Back to Members</a>
 {% endblock %}
