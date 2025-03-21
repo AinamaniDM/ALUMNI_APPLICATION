@@ -13,4 +13,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 RUN python manage.py collectstatic --noinput
 EXPOSE 8000
-CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-8000} alumni_connect.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "alumni_connect.wsgi:application"]
