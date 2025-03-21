@@ -17,8 +17,7 @@ SECRET_KEY = os.getenv("KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG") 
 
-ALLOWED_HOSTS = ["127.0.0.1", 'https://alumni-connect-08en.onrender.com']
-
+ALLOWED_HOSTS =os.getenv("ALLOWED_HOSTS").split(",")
 
 # Application definition
 
