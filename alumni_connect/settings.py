@@ -15,9 +15,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG") 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", 'https://alumni-connect-08en.onrender.com']
 
 
 # Application definition
@@ -77,7 +77,7 @@ DATABASES = {
     }
     
 }
-DATABASES['default']=dj_database_url.parse("postgresql://alumni:yiE4HCpQdlkdCEwyP4waZNpnalO8ZXo3@dpg-cvehq2ofnakc738elg3g-a.oregon-postgres.render.com/alumni_connect_mbka")
+DATABASES['default']=dj_database_url.parse(os.getenv('database_url'))
 
 
 # Password validation
