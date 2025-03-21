@@ -14,9 +14,14 @@ body {
 nav {
     background-color: #333;
     padding: 10px 0;
-}
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    z-index: 1000;
+} 
 
-nav .container {
+nav .container { 
     display: flex;
     justify-content: space-between; 
     align-items: center;

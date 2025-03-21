@@ -20,11 +20,10 @@
                 <a href="{% url 'members:member_list' %}">Members</a>
                 <a href="{% url 'news:news_list' %}">News</a>
                 <a href="{% url 'activities:activities' %}">Activities</a>
-                <a href="{% url 'auth_app:logout' %}">Logout </a>
+                <a href="{% url 'logout' %}">Logout </a>
                 <a href="{% url 'members:profile_edit' %}">
                     <img src="{{ user.profile.profile_picture.url }}" class="profile-pic" alt="profile" onerror="this.onerror=null;src='/static/images/Avatar.jpg'">
                 </a>
-                <!-- <a href="{% url 'auth_app:logout' %}">Logout </a> -->
             </div>
         </div>
     </nav>
