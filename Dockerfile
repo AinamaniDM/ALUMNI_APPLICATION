@@ -18,5 +18,5 @@ COPY . .
 EXPOSE 8000
 
 # Run the app with Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "alumni_connect.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "alumni_connect.wsgi:application","alumni-connect-n1w3.onrender.com"]
 #CMD ["python", "manage.py", "runserver","0.0.0.0:8000"]
