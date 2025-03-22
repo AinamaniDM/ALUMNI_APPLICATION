@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alumni Connect</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/core.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1.2">
+    <link rel="stylesheet" href="{% static 'css/core.css' %}?v=1.2">
 </head>
 <body>
     <nav role="navigation" aria-label="Main navigation">
@@ -15,10 +15,14 @@
                 <img src="{% static 'images/logo.png' %}" alt="Alumni Connect" class="logo">
                 <span>Alumni Connect</span>
             </div>
-            <button class="nav-toggle">☰</button>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <div class="nav-links">
-                <a href="{% url 'login' %}" class="btn">Login</a>
-                <a href="{% url 'register' %}" class="btn">Register</a>
+                <a href="{% url 'login' %}" class="nav-link">Login</a>
+                <a href="{% url 'register' %}" class="nav-link">Register</a>
             </div>
         </div>
     </nav>
@@ -42,8 +46,24 @@
         </div>
     </div>
     <script>
-        document.querySelector('.nav-toggle').addEventListener('click', () => {
-            document.querySelector('.nav-links').classList.toggle('active');
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const links = document.querySelectorAll('.nav-link');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            if (links) {
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
         });
     </script>
 </body>
