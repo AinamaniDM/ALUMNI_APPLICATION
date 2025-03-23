@@ -1,39 +1,68 @@
-<!-- templates/base.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AlumniConnect</title>
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1.1" /> <!-- Added version to bust cache -->
+  </head>
+  <body>
     {% if user.is_authenticated %}
-    <nav>
+      <nav>
         <div class="container">
-            <div class="nav-brand">
-                <img src="{% static 'images/logo.png' %}" alt="Alumni Connect" class="logo">
-                <span>Alumni Connect</span>
-            </div>
-            <div class="nav-links">
-                <a href="{% url 'members:member_list' %}">Members</a>
-                <a href="{% url 'news:news_list' %}">News</a>
-                <a href="{% url 'activities:activities' %}">Activities</a>
-                <a href="{% url 'auth_app:logout' %}">Logout </a>
-                <a href="{% url 'members:profile_edit' %}">
-                    <img src="{{ user.profile.profile_picture.url }}" class="profile-pic" alt="profile" onerror="this.onerror=null;src='/static/images/Avatar.jpg'">
-                </a>
-                <!-- <a href="{% url 'auth_app:logout' %}">Logout </a> -->
-            </div>
+          <div class="nav-brand">
+            <img src="{% static 'images/logo.png' %}" alt="Alumni Connect" class="logo" />
+            <span>Alumni Connect</span>
+          </div>
+          <button class="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div class="nav-links">
+            <a href="{% url 'members:member_list' %}" class="nav-link">Members</a>
+            <a href="{% url 'news:news_list' %}" class="nav-link">News</a>
+            <a href="{% url 'activities:activities' %}" class="nav-link">Activities</a>
+            <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+            <a href="{% url 'members:profile_edit' %}" class="nav-link">
+              {% if current_user_profile.profile_picture %}
+                <img src="{{ current_user_profile.profile_picture.url }}" class="profile-pic" alt="Your profile" onerror="this.onerror=null;src='/static/images/Avatar.jpg'" />
+              {% else %}
+                <img src="/static/images/Avatar.jpg" class="profile-pic" alt="Your profile" />
+              {% endif %}
+            </a>
+          </div>
         </div>
-    </nav>
+      </nav>
     {% endif %}
     <div class="container">
-        {% block content %}
-        {% endblock %}
-    </div>
-</body>
-<!-- <footer>all rights reserved @alumin connect</footer> -->
+      {% block content %}
 
+      {% endblock %}
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const hamburger = document.querySelector('.hamburger')
+        const navLinks = document.querySelector('.nav-links')
+        const links = document.querySelectorAll('.nav-link')
+      
+        if (hamburger && navLinks) {
+          hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active')
+          })
+        }
+      
+        if (links) {
+          links.forEach((link) => {
+            link.addEventListener('click', () => {
+              navLinks.classList.remove('active')
+            })
+          })
+        }
+      })
+    </script>
+  </body>
 </html>

@@ -1,22 +1,39 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Alumni Connect</title>
-        <link rel="stylesheet" href="{% static 'css/core.css' %}">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Connect</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1.2">
+    <link rel="stylesheet" href="{% static 'css/core.css' %}?v=1.2">
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
+</head>
 <body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="{% static 'images/logo.png' %}" alt="Alumni Connect" class="logo">
+                <span>Alumni Connect</span>
+            </div>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="{% url 'login' %}" class="nav-link">Login</a>
+                <a href="{% url 'register' %}" class="nav-link">Register</a>
+            </div>
+        </div>
+    </nav>
     <div class="home-container">
         <div class="main-content">
-            <!-- Left Column: Logo and Heading -->
             <section class="hero-section">
                 <h1>Alumni Connect</h1>
                 <img src="{% static 'images/logo.png' %}" alt="Alumni Connect Logo" class="logo">
+                <p class="tagline">Connecting UTAMU Alumni for Lifelong Growth and Impact</p>
             </section>
-
-            <!-- Right Column: Vision and Mission -->
             <section class="vision-mission">
                 <div class="content-block">
                     <h3>Our Vision</h3>
@@ -28,12 +45,27 @@
                 </div>
             </section>
         </div>
-
-        <!-- Buttons Below -->
-        <div class="auth-buttons">
-            <a href="{% url 'auth_app:login' %}" class="btn">Login</a>
-            <a href="{% url 'auth_app:register' %}" class="btn">Register</a>
-        </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const links = document.querySelectorAll('.nav-link');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            if (links) {
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>

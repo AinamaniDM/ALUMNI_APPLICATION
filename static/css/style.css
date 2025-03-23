@@ -14,11 +14,16 @@ body {
 nav {
     background-color: #333;
     padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 nav .container {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
     padding: 0 20px;
 }
@@ -29,9 +34,9 @@ nav .container {
 }
 
 .nav-brand .logo {
-    max-width: 40px; 
+    max-width: 40px;
     height: auto;
-    margin-right: 10px; /* Space between logo and text */
+    margin-right: 10px;
 }
 
 .nav-brand span {
@@ -48,7 +53,7 @@ nav .container {
 .nav-links a {
     color: #fff;
     text-decoration: none;
-    margin-left: 30px; 
+    margin-left: 30px;
     padding: 8px 12px;
     border-radius: 4px;
 }
@@ -57,48 +62,65 @@ nav .container {
     background-color: #555;
 }
 
-/* Responsive nav  */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background: #fff;
+    margin: 6px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* Mobile responsive */
 @media (max-width: 768px) {
-    nav .container {
-        flex-direction: column;
-        text-align: center;
+    .hamburger {
+        display: block !important;
     }
-    .nav-brand {
-        margin-bottom: 15px;
-    }
+
     .nav-links {
+        display: none !important;
+        position: fixed !important;
+        top: 0;
+        right: 0;
+        width: 50% !important;
+        height: 100vh;
+        background-color: #333;
         flex-direction: column;
-        width: 100%;
+        padding: 60px 20px 20px;
+        z-index: 1000;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%);
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
     }
+
+    .nav-links.active {
+        display: flex !important;
+        transform: translateX(0);
+    }
+
     .nav-links a {
-        margin: 10px 0;
+        margin: 15px 0;
+        margin-left: 0;
+        width: 100%;
+        text-align: left;
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-}
 
-.login-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.logo {
-    max-width: 150px; /* For login-header, overridden in nav */
-    margin: 20px 0;
-}
-
-h1 {
-    color: #333;
-    margin: 10px 0;
-}
-
-.slogan {
-    font-style: italic;
-    color: #666;
-    margin: 5px 0;
-}
-
-.welcome {
-    color: #555;
-    margin: 10px 0;
+    .profile-pic {
+        margin: 15px 0;
+        display: block;
+    }
 }
 
 h2 {
@@ -160,7 +182,7 @@ button:hover {
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 15px;
-    background-color:lightgray;
+    background-color: lightgray;
     box-sizing: border-box;
 }
 
@@ -200,8 +222,6 @@ button:hover {
         max-width: calc(50% - 20px);
     }
 }
-
-
 
 .activities-container {
     display: grid;
@@ -252,42 +272,39 @@ button:hover {
     font-size: 12px;
     margin-top: 15px;
 }
+
 .profile-pic {
-    width: 50px; 
-    height: 50px; 
-    border-radius: 50%; 
-    object-fit: cover; 
-    border: 2px solid #140938; 
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #140938;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Styling members the container */
 .members-container {
-    display: flex; 
-    justify-content: left; 
-    gap: 50px; 
-    flex-wrap: wrap; 
+    display: flex;
+    justify-content: left;
+    gap: 50px;
+    flex-wrap: wrap;
     padding: 20px;
 }
 
-/* Style each member Display for the member list */
 .member {
-    text-align: center; 
-    background: #f8f9fa; 
+    text-align: center;
+    background: #f8f9fa;
     padding: 15px;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
 }
 
-/* Member image*/
 .img-fluid {
-    width: 200px; 
+    width: 200px;
     height: 200px;
-    border-radius: 50%; 
-    object-fit: cover; 
+    border-radius: 50%;
+    object-fit: cover;
 }
-
 
 .member-name h3 {
     font-size: 18px;
@@ -295,17 +312,17 @@ button:hover {
     color: #333;
     text-decoration: none;
 }
+
 .member-name:hover {
-    transform: scale(1.05); 
-    background: #e3f2fd; 
+    transform: scale(1.05);
+    background: #e3f2fd;
 }
-* Form Styling */
+
 form {
     display: flex;
     flex-direction: column;
 }
 
-/* Labels */
 .form-label {
     font-weight: bold;
     margin-top: 10px;
@@ -313,8 +330,7 @@ form {
     margin-left: 10px;
 }
 
-/* Input Fields */
-.form-control{
+.form-control {
     width: 50%;
     padding: 10px;
     margin-top: 5px;
@@ -323,14 +339,7 @@ form {
     font-size: 16px;
 }
 
-/* Buttons */
-/*.mb-3 {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-}*/
-
-.mb-3{
+.mb-3 {
     padding: 10px 15px;
     font-size: 16px;
     border: none;
@@ -342,8 +351,8 @@ form {
     background-color: #3150a7;
     color: white;
     margin-top: 10px;
-
 }
+
 .save-btn:hover {
     background-color: #218838;
 }
@@ -357,12 +366,9 @@ form {
     margin-top: 10px;
 }
 
-.cancel-btn:hover {
-
-}
 .img1-fluid {
-    width: 200px; 
+    width: 200px;
     height: 200px;
-    border-radius: 50%; 
-    object-fit: cover; 
+    border-radius: 50%;
+    object-fit: cover;
 }
