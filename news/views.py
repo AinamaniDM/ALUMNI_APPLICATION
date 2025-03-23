@@ -13,7 +13,6 @@ def news_list_view(request):
     if not current_user_profile:
         current_user_profile = Profile.objects.get_or_create(user=request.user)[0]
     current_user_profile.refresh_from_db()  # Force reload from the database
-    print("News list view - Current user profile picture:", current_user_profile.profile_picture if current_user_profile else "No profile")
     
     return render(request, 'news_list.html', {
         'news': posts,
