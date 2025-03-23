@@ -9,7 +9,7 @@ class Profile(models.Model):
     bio = models.TextField(max_length=500, blank=True)
     current_employer= models.TextField(max_length=5, blank=True)
     graduation_year = models.PositiveIntegerField(null=True, blank=True)
-    profile_picture = models.ImageField(upload_to='profile_images/',null=True, blank=True)
+    profile_picture = models.ImageField(upload_to='profile_images/',default='images/Avatar.jpg',null=True, blank=True)
 
     def __str__(self):
         return f"{self.user.username}'s Profile"
