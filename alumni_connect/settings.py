@@ -69,7 +69,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-DATABASES['default'] = dj_database_url.parse(os.getenv('database_url', 'sqlite:///db.sqlite3'))
+DATABASES['default'] = dj_database_url.parse(os.getenv('database_url'))
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
