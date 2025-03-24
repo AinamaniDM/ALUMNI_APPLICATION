@@ -1,9 +1,8 @@
-<!-- templates/profile_edit.html -->
-{% extends 'base.html' %}
-{% load static %}  <!-- Add this line to load the static tag -->
+{% extends 'base.html' %}  
+{% load static %}
 
 {% block content %}
-    <h1>Ainamani Dickson</h1>
+    <h1>Update {{user.username}}'s profile</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
@@ -24,36 +23,25 @@
         </div>
         <div class="form-group">
             <label for="profile_picture">Profile Picture:</label>
-            <!-- Show the current file path -->
-            <p>Current Profile Picture: {{ profile.profile_picture|default:"No picture uploaded" }}</p>
-            <!-- Show the current image -->
             <div>
                 {% if profile.profile_picture %}
-                    <img src="{{ profile.profile_picture.url }}" id="current-profile-picture" alt="Current profile picture" style="max-width: 200px; margin-bottom: 10px;">
+                    <img src="{{ profile.profile_picture.url }}" id="current-profile-picture" alt="Current profile picture">
                 {% else %}
-                    <img src="{% static 'images/Avatar.jpg' %}" id="current-profile-picture" alt="Default profile picture" style="max-width: 200px; margin-bottom: 10px;">
+                    <img src="{% static 'images/Avatar.jpg' %}" id="current-profile-picture" alt="Default profile picture">
                 {% endif %}
             </div>
-            <!-- File input for uploading a new picture -->
             <input type="file" name="profile_picture" id="profile_picture" class="form-control" accept="image/*">
-            <!-- Show a preview of the new image -->
-            <div id="preview-container" style="display: none; margin-top: 10px;">
+            <div id="preview-container">
                 <p>New Profile Picture Preview:</p>
-                <img id="preview-image" alt="New profile picture preview" style="max-width: 200px;">
+                <img id="preview-image" alt="New profile picture preview">
             </div>
-            <!-- Optional: Add a checkbox to clear the profile picture -->
-            {% if profile.profile_picture %}
-                <div class="form-check">
-                    <input type="checkbox" name="clear_profile_picture" id="clear_profile_picture" class="form-check-input">
-                    <label for="clear_profile_picture" class="form-check-label">Clear Profile Picture</label>
-                </div>
-            {% endif %}
         </div>
-        <button type="submit" class="btn btn-primary">Save Changes</button>
-        <a href="{% url 'members:profile' user_id=request.user.id %}" class="btn btn-secondary">Cancel</a>
+        <div class="button-container">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="{% url 'members:profile' user_id=request.user.id %}" class="btn btn-secondary">Cancel</a>
+        </div>
     </form>
 
-    <!-- JavaScript for image preview -->
     <script>
         document.getElementById('profile_picture').addEventListener('change', function(event) {
             const file = event.target.files[0];
@@ -62,27 +50,11 @@
             const currentImage = document.getElementById('current-profile-picture');
 
             if (file) {
-                // Show the preview container
                 previewContainer.style.display = 'block';
-                // Hide the current image while previewing the new one
                 currentImage.style.display = 'none';
-                // Set the preview image source to the selected file
                 previewImage.src = URL.createObjectURL(file);
             } else {
-                // Hide the preview container if no file is selected
                 previewContainer.style.display = 'none';
-                currentImage.style.display = 'block';
-            }
-        });
-
-        // Reset preview if the clear checkbox is checked
-        document.getElementById('clear_profile_picture')?.addEventListener('change', function(event) {
-            const previewContainer = document.getElementById('preview-container');
-            const currentImage = document.getElementById('current-profile-picture');
-            if (event.target.checked) {
-                previewContainer.style.display = 'none';
-                currentImage.style.display = 'none';
-            } else {
                 currentImage.style.display = 'block';
             }
         });
