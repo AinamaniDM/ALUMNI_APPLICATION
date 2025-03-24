@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Profile
 
-@login_required
+@login_required(login_url="/")
 def member_list_view(request):
     members = User.objects.all()
     return render(request, 'member_list.html', {
@@ -11,7 +11,7 @@ def member_list_view(request):
         'current_user_profile': request.user.profile  # Add logged-in user's profile
     })
 
-@login_required
+@login_required(login_url="/")
 def profile_view(request, user_id):
     user = get_object_or_404(User, id=user_id)
     profile = get_object_or_404(Profile, user=user)
@@ -21,7 +21,7 @@ def profile_view(request, user_id):
         'current_user_profile': request.user.profile  # Add logged-in user's profile
     })
 
-@login_required
+@login_required(login_url="/")
 def profile_edit_view(request):
     profile = get_object_or_404(Profile, user=request.user)
     if request.method == 'POST':

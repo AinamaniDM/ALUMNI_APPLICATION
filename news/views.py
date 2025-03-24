@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Post
 from members.models import Profile
 
-@login_required
+@login_required(login_url="/")
 def news_list_view(request):
     posts = Post.objects.all()
     
