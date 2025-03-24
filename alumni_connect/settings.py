@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("KEY", "django-insecure-fallback-for-build")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG") == "True"
+DEBUG =True
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*.onrender.com,localhost,127.0.0.1").split(",")
 

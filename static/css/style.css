@@ -8,7 +8,17 @@ body {
 .container {
     width: 80%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 120px 20px 20px;
+}
+
+.container h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-family: "Montserrat";
+    font-style: italic;
+    font-size: 20px;
+    text-align: center;
 }
 
 nav {
@@ -37,6 +47,7 @@ nav .container {
     max-width: 40px;
     height: auto;
     margin-right: 10px;
+    border-radius: 50%;
 }
 
 .nav-brand span {
@@ -87,12 +98,39 @@ nav .container {
         display: block !important;
     }
 
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 80px 20px 20px;
+    }
+
+    .container h1 {
+        color: #333;
+        margin-bottom: 10px;
+        font-style: italic;
+        font-size: 12px;
+        text-align: center;
+        font-family: "Montserrat";
+    }
+    .nav-brand .logo {
+        max-width: 40px;
+        height: auto;
+        margin-right: 10px;
+        border-radius: 50%;
+    }
+    
+    .nav-brand span {
+        color: #fff;
+        font-size: 1.0rem;
+        font-weight: bold;
+    }
+
     .nav-links {
         display: none !important;
         position: fixed !important;
         top: 0;
         right: 0;
-        width: 50% !important;
+        width: 30% !important;
         height: 100vh;
         background-color: #333;
         flex-direction: column;

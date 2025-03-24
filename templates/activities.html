@@ -1,6 +1,7 @@
 
 {% extends 'base.html' %}
 {% block content %}
+    <h1> {{ user.username}}, follow up our past and upcoming activities</h1>
     <div class="activities-container">
         {% for activity in activities %}
             <div class="activity-card">
