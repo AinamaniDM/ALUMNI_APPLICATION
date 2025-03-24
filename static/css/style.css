@@ -410,6 +410,10 @@ form {
     border-radius: 50%;
     object-fit: cover;
 }
+.username {
+    color: #1a73e8; /* Blue color for the username */
+    font-weight: 600; 
+}
 
 
 

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-    <h1>Update {{user.username}}'s profile</h1>
+    <h1>Update <span class="username">{{ user.username }}</span>'s profile</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
@@ -32,8 +32,8 @@
             </div>
             <input type="file" name="profile_picture" id="profile_picture" class="form-control" accept="image/*">
             <div id="preview-container">
-                <p>New Profile Picture Preview:</p>
-                <img id="preview-image" alt="New profile picture preview">
+                <p>New Profile Picture:</p>
+                <img id="preview-image" alt="New prof-image">
             </div>
         </div>
         <div class="button-container">

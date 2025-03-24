@@ -3,7 +3,7 @@
 
 {% block content %}
     <div class="profile-container">
-        <h1>{{ user.username }}'s Profile</h1>
+        <h1><span class="username">{{ user.username }}</span>'s Profile</h1>
         {% if profile.profile_picture %}
             <img src="{{ profile.profile_picture.url }}" alt="profile" onerror="this.onerror=null;src='/static/images/Avatar.jpg'" class="profile-picture img-fluid">
         {% else %}
