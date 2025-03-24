@@ -410,3 +410,233 @@ form {
     border-radius: 50%;
     object-fit: cover;
 }
+
+
+
+/*Styles for the profile edit page*/
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e6f3ff;
+    margin: 0;
+    padding: 30px;
+}
+
+h1 {
+    color: #1a73e8;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Profile container */
+.profile-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 2px solid #1a73e8;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Profile picture */
+.profile-picture {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid #1a73e8;
+    padding: 5px;
+    background-color: #fff;
+    display: block;
+    margin: 0 auto 20px;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    transition: border-color 0.3s;
+}
+
+.profile-picture:hover {
+    border-color: #ff5722;
+}
+
+/* Profile details */
+.profile-details {
+    margin-bottom: 30px;
+}
+
+.profile-details p {
+    font-size: 1.1em;
+    color: #333;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.profile-details strong {
+    color: #1a73e8;
+    font-weight: 600;
+}
+
+/* Form container (for edit form) */
+form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 2px solid #1a73e8;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Form groups (for edit form) */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #1a73e8;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #1a73e8;
+    border-radius: 6px;
+    font-size: 1em;
+    background-color: #f0f8ff;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #ff5722;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(255, 87, 34, 0.4);
+    outline: none;
+}
+
+textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Button container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; 
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    background-color: #1a73e8;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #ff5722;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: #888;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #666;
+    transform: scale(1.05);
+}
+
+/* Image styling (for edit form) */
+#current-profile-picture, #preview-image {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid #1a73e8;
+    padding: 5px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+#current-profile-picture:hover, #preview-image:hover {
+    border-color: #ff5722;
+}
+
+#preview-container {
+    display: none;
+    margin-top: 15px;
+}
+
+#preview-container p {
+    font-weight: 600;
+    color: #ff5722;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Responsive design for small screens */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+    .profile-container, form {
+        padding: 15px;
+        max-width: 100%;
+        margin: 0;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn {
+        width: 100%;
+        margin: 0;
+    }
+    /* Profile picture styling*/
+    .profile-picture, #current-profile-picture, #preview-image {
+        max-width: 50%;
+        min-width: 120px;
+        border-width: 2px;
+        padding: 3px;
+    }
+    .profile-details p {
+        font-size: 1em;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-control {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
