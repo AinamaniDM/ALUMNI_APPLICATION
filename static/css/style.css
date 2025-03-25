@@ -286,10 +286,12 @@ button:hover {
 
 .activity-card img {
     width: 100%;
-    height: 200px;
+    height: auto;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 15px;
+    max-height: 300px; 
+    object-fit: contain; 
 }
 
 .activity-card h3 {
