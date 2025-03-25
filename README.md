@@ -3,7 +3,7 @@
 
 # Alumni Web App
 
-This is a simple Django web app for **Alumni** of a certain institution to connect.
+This is a simple Django web app for **Alumni** of a certain Utamu to connect.
 
 ## Features
 
@@ -26,4 +26,6 @@ Access the app at http://127.0.0.1:8000/.<br>
 ## Contributing
 
 Fork, improve and submit a PR!<br>
+
+## Welldone Guys
 
