@@ -23,6 +23,15 @@ python manage.py runserver <br>
 
 Access the app at http://127.0.0.1:8000/.<br>
 
+## Windows
+git clone git@github.com:AinamaniDM/ALUMNI_APPLICATION.git <br> 
+cd ALUMNI_APPLICATION<br>
+create virtual environment ( e.g if you have virtualenv installed, use command "virtualenv venv" where venv is your virtual environment name)<br>
+activate venv e.g in bash "source venv/scripts/activate"<br>
+pip install -r requirements.txt<br>
+python manage.py migrate<br>
+python manage.py runserver<br>
+
 ## Contributing
 
 Fork, improve and submit a PR!<br>
